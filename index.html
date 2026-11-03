@@ -78,9 +78,9 @@
     fetch('work.json')
       .then(r => r.json())
       .then(items => {
-        // work.json is already sorted by Publish Date (newest first) from CSV export
+        // work.json order is the display order (top of the file shows first)
         const grid = document.getElementById('work-grid');
-        items.forEach(item => {
+        const tiles = items.map(item => {
           const div = document.createElement('div');
           div.className = 'grid-item';
           const img = document.createElement('img');
@@ -94,12 +94,41 @@
           img.loading = 'lazy';
           img.decoding = 'async';
           img.onload = () => div.classList.add('is-loaded');
-          img.onerror = () => div.remove();
+          img.onerror = () => { div.remove(); };
           img.src = item.image;
           if (img.complete && img.naturalWidth) div.classList.add('is-loaded');
           div.appendChild(img);
-          grid.appendChild(div);
+          return { div, ratio: item.width && item.height ? item.height / item.width : 1 };
         });
+
+        // Masonry: deal tiles in order, each into the currently shortest column
+        // (leftmost on ties), so they read left to right across the top.
+        let currentCols = 0;
+        function layout() {
+          const style = getComputedStyle(grid);
+          const cols = Math.max(1, parseInt(style.getPropertyValue('--cols'), 10) || 4);
+          if (cols === currentCols) return;
+          currentCols = cols;
+          const gap = parseFloat(style.columnGap) || 0;
+          const colWidth = (grid.clientWidth - gap * (cols - 1)) / cols || 1;
+          const columns = [];
+          const heights = [];
+          for (let i = 0; i < cols; i++) {
+            const col = document.createElement('div');
+            col.className = 'grid-col';
+            columns.push(col);
+            heights.push(0);
+          }
+          tiles.forEach(t => {
+            let shortest = 0;
+            for (let i = 1; i < cols; i++) if (heights[i] < heights[shortest] - 0.5) shortest = i;
+            columns[shortest].appendChild(t.div);
+            heights[shortest] += t.ratio * colWidth + gap;
+          });
+          grid.replaceChildren(...columns);
+        }
+        layout();
+        window.addEventListener('resize', layout);
       })
       .catch(err => console.error('Failed to load work:', err));
   </script>
