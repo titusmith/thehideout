@@ -205,11 +205,30 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.grid-item {
+  /* Faint tile shown in the image's reserved space until it loads */
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.grid-item.is-loaded {
+  background: none;
+}
+
 .grid-item img {
   display: block;
   width: 100%;
   height: auto;
   vertical-align: top;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.grid-item.is-loaded img {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-item img { transition: none; }
 }
 
 /* Wider desktop (1600px+) — 5 columns */

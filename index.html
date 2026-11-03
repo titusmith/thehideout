@@ -84,11 +84,19 @@
           const div = document.createElement('div');
           div.className = 'grid-item';
           const img = document.createElement('img');
-          img.src = item.image;
+          // Real dimensions reserve each tile's space before the image arrives,
+          // so the grid is laid out once and nothing shifts while loading.
+          if (item.width && item.height) {
+            img.width = item.width;
+            img.height = item.height;
+          }
           img.alt = item.title;
           img.loading = 'lazy';
           img.decoding = 'async';
+          img.onload = () => div.classList.add('is-loaded');
           img.onerror = () => div.remove();
+          img.src = item.image;
+          if (img.complete && img.naturalWidth) div.classList.add('is-loaded');
           div.appendChild(img);
           grid.appendChild(div);
         });
