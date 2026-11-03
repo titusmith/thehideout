@@ -25,6 +25,7 @@ python3 -m http.server 8000
    ```json
    { "title": "Project name", "image": "images/work/your-file.jpg" }
    ```
+3. Run `node scripts/image-sizes.js` to record the image's width and height in `work.json`. The grid uses them to hold each image's space while it loads, so the layout doesn't jump.
 
 ## Assets
 
