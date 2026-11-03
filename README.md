@@ -24,14 +24,14 @@ The work grid is built from `work.json`. The top entry shows first.
 
 ### With the editor (easiest)
 
-1. Go to [app.pagescms.org](https://app.pagescms.org), sign in with GitHub, and open **titusmith/thehideout**. The first time, it asks to install the Pages CMS app on the repo; allow it.
-2. Click **Work** in the sidebar. Every project is listed in order.
-3. **Add:** click **Add an entry**, type a title, upload the image, then drag the new entry to where you want it (usually the top).
-4. **Reorder:** drag entries up or down.
-5. **Remove:** use the entry's menu to delete it.
-6. Click **Save**. The site updates in a minute or two.
+The editor runs only on your computer. It isn't part of the website, so nobody else can reach it.
 
-After each save, the "Image sizes" GitHub Action records the new image's width and height in `work.json`, so it holds its spot in the grid while loading. You don't need to do anything for that.
+1. In Terminal: `cd ~/hideout` then `node scripts/admin.js`. Your browser opens the editor.
+2. **Add:** choose an image (or drag one onto the box), type a title, click **Add to top**.
+3. **Reorder:** drag projects, or use the ↑ ↓ buttons. The top project shows first.
+4. **Edit or remove:** change a title in place, or click ✕ to take a project off the site.
+5. Click **Preview** to see the grid locally, then **Publish**. The site updates in a minute or two.
+6. Press Ctrl+C in Terminal when you're done.
 
 ### From the terminal
 
