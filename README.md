@@ -1,42 +1,37 @@
 # The Hideout®
 
-Static portfolio site for The Hideout Design Co. Built from scratch to replace the Webflow-hosted version.
+Static portfolio site for The Hideout Design Co, replacing the Webflow version of thehideout.design. Plain HTML, CSS and a little JavaScript, no build step.
 
-## Test locally
+## Pages
 
-The work page loads `work.json` via fetch, which requires a real HTTP server (not `file://`).
+- `index.html` is the splash page: client logos, the "Don't tell nobody" marquee and the Enter button.
+- `work.html` is the work grid. Projects come from `work.json`, newest first.
+- `info.html` is the bio and contact button.
+
+## Run it locally
+
+`work.html` loads `work.json` with `fetch`, so it needs a real server rather than `file://`:
 
 ```bash
-cd hideout
 npx serve .
-```
-
-Then open **http://localhost:3000** in your browser. Or:
-
-```bash
+# or
 python3 -m http.server 8000
 ```
 
-Then open **http://localhost:8000**.
+## Add a project
 
-## Deploy to GitHub Pages
-
-1. Create a repo on GitHub (e.g. `hideout`).
-2. Push this folder:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/YOUR_USERNAME/hideout.git
-   git push -u origin main
+1. Drop the image in `images/work/`.
+2. Add an entry to the top of `work.json`:
+   ```json
+   { "title": "Project name", "image": "images/work/your-file.jpg" }
    ```
-3. In the repo: **Settings → Pages**
-4. Under **Source**, choose **Deploy from a branch**
-5. Branch: **main**, folder: **/ (root)**
-6. Save — the site will be at `https://YOUR_USERNAME.github.io/hideout/`
-7. For **thehideout.design**: The `CNAME` file is already set. In Pages settings, add the custom domain and follow GitHub’s DNS instructions.
 
 ## Assets
 
-- **Fonts**: In `fonts/` — add or replace files, update `@font-face` in `css/styles.css`
-- **Images**: Run `node download-assets.js` to fetch from Webflow CDN (run before cancelling Webflow)
+Fonts live in `fonts/` with their `@font-face` rules in `css/styles.css`.
+
+`node download-assets.js` pulls anything missing from the Webflow CDN, including the splash logos, the Enter button and the social share image. It skips files that already exist. Run it before Webflow is cancelled.
+
+## Deploy
+
+Hosted on GitHub Pages from `main`. The `CNAME` file points it at `www.thehideout.design`; DNS needs a `CNAME` record for `www` to `titusmith.github.io` and `A` records for the apex domain to GitHub's Pages IPs.

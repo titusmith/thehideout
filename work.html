@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Hideout® — Work</title>
+  <meta name="description" content="The design practice of Titus Smith. Branding, illustration, copywriting and web design from Vinland, Kansas.">
+  <meta property="og:title" content="The Hideout®">
+  <meta property="og:description" content="The design practice of Titus Smith. Branding, illustration, copywriting and web design from Vinland, Kansas.">
+  <meta property="og:image" content="https://www.thehideout.design/images/social-share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/hideoutlogo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -81,6 +87,8 @@
           img.src = item.image;
           img.alt = item.title;
           img.loading = 'lazy';
+          img.decoding = 'async';
+          img.onerror = () => div.remove();
           div.appendChild(img);
           grid.appendChild(div);
         });
