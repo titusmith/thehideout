@@ -4,13 +4,13 @@ Static portfolio site for The Hideout Design Co, replacing the Webflow version o
 
 ## Pages
 
-- `index.html` is the splash page: client logos, the "Don't tell nobody" marquee and the Enter button.
-- `work.html` is the work grid. Projects come from `work.json`, newest first.
+- `index.html` is the home page and work grid. Projects come from `work.json`, newest first.
+- `work.html` only redirects old `/work` links to the home page.
 - `info.html` is the bio and contact button.
 
 ## Run it locally
 
-`work.html` loads `work.json` with `fetch`, so it needs a real server rather than `file://`:
+`index.html` loads `work.json` with `fetch`, so it needs a real server rather than `file://`:
 
 ```bash
 npx serve .
