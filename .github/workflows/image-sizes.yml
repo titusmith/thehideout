@@ -1,0 +1,33 @@
+# Records each work image's width and height in work.json after every edit,
+# so new projects hold their spot in the grid while they load.
+name: Image sizes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - work.json
+      - images/work/**
+
+permissions:
+  contents: write
+
+jobs:
+  sizes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/image-sizes.js
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet work.json; then
+            echo "Sizes already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Record image sizes in work.json"
+          git push
