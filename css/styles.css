@@ -1,0 +1,548 @@
+/* Lastik — variable usage via font-weight */
+@font-face {
+  font-family: 'Lastik';
+  src: url('../fonts/lastik/Lastik-Regular.woff2') format('woff2'),
+       url('../fonts/lastik/Lastik-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lastik';
+  src: url('../fonts/lastik/Lastik-SemiBold.woff2') format('woff2'),
+       url('../fonts/lastik/Lastik-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lastik';
+  src: url('../fonts/lastik/Lastik-Bold.woff2') format('woff2'),
+       url('../fonts/lastik/Lastik-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lastik';
+  src: url('../fonts/lastik/Lastik-ExtraBold.woff2') format('woff2'),
+       url('../fonts/lastik/Lastik-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lastik';
+  src: url('../fonts/lastik/Lastik-Black.woff2') format('woff2'),
+       url('../fonts/lastik/Lastik-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* DOUGHPUNCH — width variants via font-stretch */
+@font-face {
+  font-family: 'DOUGHPUNCH';
+  src: url('../fonts/doughpunch/DOUGHPUNCH-Compressed.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: ultra-condensed;
+}
+@font-face {
+  font-family: 'DOUGHPUNCH';
+  src: url('../fonts/doughpunch/DOUGHPUNCH-Condensed.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'DOUGHPUNCH';
+  src: url('../fonts/doughpunch/DOUGHPUNCH-Narrow.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: semi-condensed;
+}
+@font-face {
+  font-family: 'DOUGHPUNCH';
+  src: url('../fonts/doughpunch/DOUGHPUNCH-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'DOUGHPUNCH';
+  src: url('../fonts/doughpunch/DOUGHPUNCH-Wide.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: expanded;
+}
+
+@font-face {
+  font-family: 'Gooper7';
+  src: url('../fonts/gooper/Gooper7-Regular.woff2') format('woff2'),
+       url('../fonts/gooper/Gooper7-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #000a22;
+  --text: #fff;
+  --text-muted: rgba(255, 255, 255, 0.85);
+  --border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  margin: 0;
+  font-family: 'Lastik', Times New Roman, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Font utility classes — match font name casing (Lastik, DOUGHPUNCH) */
+.Lastik {
+  font-family: 'Lastik', Times New Roman, sans-serif;
+}
+
+.DoughNarrow {
+  font-family: 'DOUGHPUNCH', sans-serif;
+  font-stretch: condensed;
+}
+
+.DoughWide {
+  font-family: 'DOUGHPUNCH', sans-serif;
+  font-stretch: expanded;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header .logo {
+  flex-shrink: 0;
+}
+
+.logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.tagline {
+  margin: 0;
+  width: 500px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+}
+
+.tagline .Lastik { color: var(--text); }
+.tagline .DoughNarrow { color: var(--text); }
+.tagline .DoughWide { color: var(--text); }
+
+.friends-note .DoughNarrow { font-family: 'DOUGHPUNCH', sans-serif; font-stretch: condensed; }
+.friends-note .DoughWide { font-family: 'DOUGHPUNCH', sans-serif; font-stretch: expanded; }
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  text-decoration: underline;
+}
+
+/* Main */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Blurbs (work page) — single random intro */
+.intro-section {
+  margin-bottom: 3rem;
+}
+
+.intro-text {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+}
+
+.intro-text .Lastik { color: var(--text); }
+.intro-text .DoughNarrow { color: var(--text); }
+.intro-text .DoughWide { color: var(--text); }
+
+/* Masonry grid — Webflow breakpoints: 992, 768, 480 */
+.grid {
+  column-count: 4;
+  column-gap: 1.5rem;
+}
+
+.grid-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.grid-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/* Wider desktop (1600px+) — 5 columns */
+@media (min-width: 1600px) {
+  .grid {
+    column-count: 5;
+  }
+}
+
+/* Extra wide (1920px+) or zoomed out — 6 columns */
+@media (min-width: 1920px) {
+  .grid {
+    column-count: 6;
+  }
+}
+
+/* Tablet (768–991px) — 3 columns, smaller type */
+@media (max-width: 991px) {
+  .grid {
+    column-count: 3;
+  }
+
+  .tagline {
+    font-size: 16px;
+  }
+
+  .intro-text {
+    font-size: 24px;
+  }
+
+  .info-title {
+    font-size: 28px;
+  }
+
+  .info-content p {
+    font-size: 18px;
+  }
+
+  .friends-note {
+    font-size: 18px;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  .main--info {
+    padding: 2rem;
+  }
+}
+
+/* Mobile landscape (480–767px) — 2 columns, smaller type */
+@media (max-width: 767px) {
+  .grid {
+    column-count: 2;
+  }
+
+  .tagline {
+    width: 210px;
+    font-size: 12px;
+  }
+
+  .intro-text {
+    font-size: 18px;
+  }
+
+  .info-title {
+    font-size: 22px;
+  }
+
+  .info-content p {
+    font-size: 16px;
+  }
+
+  .friends-note {
+    font-size: 16px;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-right {
+    flex-direction: column;
+  }
+
+  .scrollup {
+    width: 80px;
+    height: 80px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .scrollupfinger {
+    font-size: 40px;
+  }
+}
+
+/* Mobile (< 480px) — 1 column */
+@media (max-width: 479px) {
+  .grid {
+    column-count: 1;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tagline {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  .main--info {
+    padding: 1rem;
+  }
+
+  .scrollup {
+    width: 64px;
+    height: 64px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .scrollupfinger {
+    font-size: 32px;
+  }
+}
+
+/* Info page — OG: 940px content width, 64px padding, scaled typography */
+.main--info {
+  max-width: 940px;
+  padding: 4rem;
+}
+
+.info-hero-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2.5rem;
+}
+
+.info-title {
+  font-family: 'Lastik', Times New Roman, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.info-content p {
+  margin-bottom: 1.25rem;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Brand name in body text — larger than body (OG: THE HIDEOUT® prominent) */
+.info-content .DoughNarrow,
+.info-content .DoughWide {
+  font-size: 1.15em;
+}
+
+.info-content .Lastik { color: var(--text); }
+.info-content .DoughNarrow { color: var(--text); }
+.info-content .DoughWide { color: var(--text); }
+
+.info-cta {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer — OG layout: 940px width, home icon center, social left, copyright+finger right */
+.footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.friends-note {
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  font-size: 22px;
+  line-height: 150%;
+  color: var(--text);
+  text-align: center;
+}
+
+.footer-home {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+
+.footer-home:hover {
+  color: var(--text-muted);
+}
+
+.footer-home-icon {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a:hover {
+  color: var(--text-muted);
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Notion icon: improve rendering at small size (fixes jagged edges) */
+.social-icon--notion {
+  shape-rendering: geometricPrecision;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Scroll-to-top button — OG structure, appears on scroll, bottom right */
+.scrollup {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollup.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scrollup:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scrollupfinger {
+  color: #fff;
+  font-family: 'Gooper7', Georgia, sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1;
+}
