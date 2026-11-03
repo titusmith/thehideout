@@ -195,14 +195,22 @@ body {
 .intro-text .DoughWide { color: var(--text); }
 
 /* Masonry grid — Webflow breakpoints: 992, 768, 480 */
+/* JS (index.html) reads --cols and deals items into that many columns, each into
+   the shortest one, so the newest work runs left to right across the top. */
 .grid {
-  column-count: 4;
-  column-gap: 1.5rem;
+  --cols: 4;
+  --gap: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
 }
 
-.grid-item {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
+.grid-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
 }
 
 .grid-item {
@@ -234,21 +242,21 @@ body {
 /* Wider desktop (1600px+) — 5 columns */
 @media (min-width: 1600px) {
   .grid {
-    column-count: 5;
+    --cols: 5;
   }
 }
 
 /* Extra wide (1920px+) or zoomed out — 6 columns */
 @media (min-width: 1920px) {
   .grid {
-    column-count: 6;
+    --cols: 6;
   }
 }
 
 /* Tablet (768–991px) — 3 columns, smaller type */
 @media (max-width: 991px) {
   .grid {
-    column-count: 3;
+    --cols: 3;
   }
 
   .tagline {
@@ -283,7 +291,7 @@ body {
 /* Mobile landscape (480–767px) — 2 columns, smaller type */
 @media (max-width: 767px) {
   .grid {
-    column-count: 2;
+    --cols: 2;
   }
 
   .tagline {
@@ -336,7 +344,7 @@ body {
 /* Mobile (< 480px) — 1 column */
 @media (max-width: 479px) {
   .grid {
-    column-count: 1;
+    --cols: 1;
   }
 
   .header {

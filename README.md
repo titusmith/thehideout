@@ -4,7 +4,7 @@ Static portfolio site for The Hideout Design Co, replacing the Webflow version o
 
 ## Pages
 
-- `index.html` is the home page and work grid. Projects come from `work.json`, newest first.
+- `index.html` is the home page and work grid. Projects come from `work.json` in order and fill left to right, each dropping into the shortest column.
 - `work.html` only redirects old `/work` links to the home page.
 - `info.html` is the bio and contact button.
 
