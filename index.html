@@ -2,11 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=work.html">
-  <title>Redirecting — The Hideout®</title>
-  <script>location.replace('work.html');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to The Hideout®</title>
+  <meta name="description" content="Congratulations. You found it. The Hideout® is the handsomest design agency in the entire Midwest. Branding, illustration, copywriting and web design. All in one place, with feeling.">
+  <meta property="og:title" content="Welcome to The Hideout®">
+  <meta property="og:description" content="Congratulations. You found it. The handsomest design agency in the entire Midwest.">
+  <meta property="og:image" content="https://www.thehideout.design/images/social-share.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/hideoutlogo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="margin:0;background:#000a22;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh">
-  <p>Redirecting to <a href="work.html" style="color:#fff">Work</a>…</p>
+<body class="splash">
+  <main class="splash-main">
+    <h1 class="visually-hidden">Welcome to The Hideout®</h1>
+
+    <ul class="splash-logos" aria-label="Some friends of The Hideout®">
+      <li><img src="images/logos/hideout.png" alt="The Hideout®" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/flatlanders.png" alt="Flatlanders" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/randas.png" alt="Randa's" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/mordka.png" alt="Mordka Realty" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/poolrev.png" alt="Pool Revolution" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/garbagemouth.png" alt="Garbage Mouth" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/gulleys.png" alt="Gulley's" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/ssc.png" alt="SSC" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/coastallaw.png" alt="Coastal Law" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/littlegiant.png" alt="Little Giant" onerror="this.parentNode.remove()"></li>
+      <li><img src="images/logos/auntbs.png" alt="Aunt B's" onerror="this.parentNode.remove()"></li>
+    </ul>
+
+    <a href="work.html" class="splash-enter" aria-label="Enter The Hideout®">
+      <img src="images/button-enter.svg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'splash-enter-fallback',textContent:'Enter'}))">
+    </a>
+  </main>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+      <span>Welcome to <span class="DoughNarrow">The </span><span class="DoughWide">Hideout®</span> • Don't tell nobody • </span>
+    </div>
+  </div>
 </body>
 </html>
