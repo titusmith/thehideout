@@ -33,14 +33,15 @@ The work grid is built from `work.json`. The top entry shows first.
 
 After each save, the "Image sizes" GitHub Action records the new image's width and height in `work.json`, so it holds its spot in the grid while loading. You don't need to do anything for that.
 
-### By hand
+### From the terminal
 
-1. Drop the image in `images/work/`.
-2. Add an entry to `work.json` where you want it to appear:
-   ```json
-   { "title": "Project name", "image": "images/work/your-file.jpg" }
-   ```
-3. Commit to `main`. The Image sizes Action fills in the width and height, or run `node scripts/image-sizes.js` yourself.
+In Terminal, from the site folder (`cd ~/hideout`):
+
+```bash
+node scripts/add-project.js ~/Desktop/poster.jpg "Project title"
+```
+
+That copies the image into `images/work/`, puts the project at the top of the grid, and publishes it. To reorder, open `work.json` in a text editor, move entries up or down (top shows first), save, then run `git commit -am "Reorder work" && git push`.
 
 ## Assets
 
